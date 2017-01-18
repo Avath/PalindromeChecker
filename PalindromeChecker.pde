@@ -4,7 +4,8 @@ public void setup()
   println("there are " + lines.length + " lines");
   for (int i=0; i < lines.length; i++) 
   {
-    if(palindrome(lines[i])==true)
+    
+    if(palindrome(noSpaces(lines[i]))==true)
     {
       println(lines[i] + " IS a palidrome.");
     }
@@ -13,16 +14,46 @@ public void setup()
       println(lines[i] + " is NOT a palidrome.");
     }
   }
+} 
+
+public String noSpaces(String sWord){
+  String t=new String();
+  for(int i=0;i<sWord.length();i++){
+    if(!sWord.substring(i,i+1).equals(" ")){
+    t=t+sWord.substring(i,i+1);
+    }
+  }
+  
+   return t;
 }
 public boolean palindrome(String word)
 {
-  //your code here
+ String t=new String(); 
+  
+  for(int i=word.length()-1;i>-1;i--){
+    t=t+word.substring(i, i+1);
+    
+  }
+   if(word.equals(t)){
+    return true;
+    }
+   
   return false;
+  
+
+
 }
 public String reverse(String str)
 {
     String sNew = new String();
-    //your code here
+     
+  
+  for(int i=str.length()-1;i>-1;i--){
+    sNew=sNew+str.substring(i, i+1);
+     
+  }
+  
+  
     return sNew;
 }
 
