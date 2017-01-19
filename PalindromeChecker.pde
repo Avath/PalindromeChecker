@@ -5,7 +5,7 @@ public void setup()
   for (int i=0; i < lines.length; i++) 
   {
     
-    if(palindrome(noSpaces(lines[i]))==true)
+    if(palindrome(noCapitals(noSpaces(numLetters(lines[i]))))==true)
     {
       println(lines[i] + " IS a palidrome.");
     }
@@ -17,7 +17,7 @@ public void setup()
 } 
 
 public String noSpaces(String sWord){
-  String t=new String();
+   String t=new String();
   for(int i=0;i<sWord.length();i++){
     if(!sWord.substring(i,i+1).equals(" ")){
     t=t+sWord.substring(i,i+1);
@@ -26,6 +26,21 @@ public String noSpaces(String sWord){
   
    return t;
 }
+public String numLetters(String sString){
+  String t=new String();
+  for(int i=0;i<sString.length();i++){
+  if(Character.isLetter(sString.charAt(i)))
+  t=t+sString.substring(i,i+1);
+    
+  
+  }
+  return t;
+  
+}
+public String noCapitals(String sWord){
+ return sWord.toLowerCase();
+}
+
 public boolean palindrome(String word)
 {
  String t=new String(); 
